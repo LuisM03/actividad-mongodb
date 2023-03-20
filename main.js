@@ -1,7 +1,7 @@
 const {MongoClient, } = require("mongodb")
 const  {faker} = require("@faker-js/faker");
 const {ObjectId} = require("mongodb");
-const { agregarDocumento } = require("./crud")
+const { obtenerDocumentosPiplines, deleteCollection } = require("./crud")
 
 
 
@@ -21,10 +21,8 @@ async function run() {
         asignaturas: ["Ingles", "Filosofia"]
     }
 
-    const result = await obtenerDocumentosUnWind(client)
-    result.forEach(element => {
-        console.log(element)
-    });
+    const result = await deleteCollection(client, "calificaciones")
+    console.log(result)
   } finally {
   }
 }

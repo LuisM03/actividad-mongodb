@@ -72,9 +72,11 @@ const deleteDocumentos = (client, collection, condicion) => {
 }
 
 // -> drop()
-const deleteCollection = (db, collection) => {
+const deleteCollection = (client, collection) => {
     try {
-        return db.collection(collection).drop()
+        const result = client.db("classify").collection(collection).drop()
+        console.log("Coleccion " + collection + "eliminada con exito")
+        return result
     } catch (error) {
         console.log(error)
     }
