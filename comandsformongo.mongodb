@@ -1,0 +1,103 @@
+use("classify")
+
+// Colección de areas.
+// db.createCollection("areas", {
+//     validator: {
+//         $jsonSchema: {
+//             bsonType: "object",
+//             title: "Areas object validation",
+//             required: ["nombre", "descripcion", "responsable", "fecha_creacion", "asignaturas"],
+//             properties: {
+//                 nombre: {
+//                     bsonType: "string",
+//                     description: "'nombre' debe ser un string y es obligatorio"
+//                 },
+//                 descripcion: {
+//                     bsonType: "string",
+//                     description: "'descripcion' debe ser un string y es obligatorio"
+//                 },
+//                 responsable: {
+//                     bsonType: "string",
+//                     description: "'responsable' debe ser un string y es obligatorio"
+//                 },
+//                 fecha_creacion: {
+//                     bsonType: "date",
+//                     description: "'fecha_creacion' debe ser un date y es obligatorio"
+//                 },
+//                 asignaturas: {
+//                     bsonType: "array",
+//                     description: "'asignaturas' debe ser un array y es obligatorio"
+//                 }
+//             }
+//         }
+//     }
+// });
+
+// Colección de estudiantes.
+
+// db.createCollection("estudiantes", {
+//     validator: {
+//         $jsonSchema: {
+//             bsonType: "object",
+//             title: "Estudiantes object validation",
+//             required: ["nombre_completo", "numero_identificacion", "fecha_nacimiento", "asignaturas", "contacto_padres"],
+//             properties: {
+//                 nombre_completo: {
+//                     bsonType: "string",
+//                     description: "'nombre_completo' debe ser un string y es obligatorio"
+//                 },
+//                 numero_identificacion: {
+//                     bsonType: "string",
+//                     description: "'numero_identificacion' debe ser un string y es obligatorio"
+//                 },
+//                 fecha_nacimiento: {
+//                     bsonType: "date",
+//                     description: "'fecha_nacimiento' debe ser un date y es obligatorio"
+//                 },
+//                 asignaturas: {
+//                     bsonType: "array",
+//                     description: "'asignaturas' debe ser un array y es obligatorio"
+//                 },
+//                 contacto_padres: {
+//                     bsonType: "string",
+//                     description: "'contacto_padres' debe ser un string y es obligatorio"
+//                 },
+//             }
+//         }
+//     }
+// })
+
+
+// Colección de calificaciones.
+
+db.createCollection("calificaciones", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Calificaciones object validation",
+            required: ["asignatura", "alumno", "nota", "fecha_evaluacion", "comentarios"],
+            properties: {
+                asignatura: {
+                    bsonType: "string",
+                    description: "'asignatura' debe ser un string y es obligatorio"
+                },
+                alumno: {
+                    bsonType: "string",
+                    description: "'alumno' debe ser un string y es obligatorio"
+                },
+                nota: {
+                    bsonType: ["double"],
+                    description: "'fecha_nacimiento' debe ser un double y es obligatorio"
+                },
+                fecha_evaluacion: {
+                    bsonType: "date",
+                    description: "'fecha_evaluacion' debe ser un date y es obligatorio"
+                },
+                comentarios: {
+                    bsonType: "string",
+                    description: "'comentarios' debe ser un string y es obligatorio"
+                },
+            }
+        }
+    }
+})
